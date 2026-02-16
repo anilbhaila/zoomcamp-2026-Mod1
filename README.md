@@ -104,7 +104,16 @@ http://localhost:8501/v1/models/tip_model
 
 # MOD4 - analytics engineering
 
-# Instead of installing duckDB in your machine, run it in docker container
-Create your own Docker Container (Learning)
+# Instead of installing duckDB in your machine, run it in ubuntu docker container
+# Create a Dockerfile which will help to create a my-ubuntu-duckdb docker image
+docker run --rm -it -v $(pwd):/app my-ubuntu-duckdb
 
-# Let's use UV to install duckDB
+/workspaces/zoomcamp-2026-Mod1/04-analytics-engineering/keys/my-creds.json
+/home/codespace/.dbt/profiles.yml
+
+dbt init
+dbt run
+dbt show --select stg_yellow_tripdata --limit 100
+
+
+git reset  "will unset the staged changes"

@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw_data
+    description: "Raw data sources for NYC taxi rides"
+    database: kestra-sandbox-486219
+    schema: zoomcamp_kestra
+    tables:
+      - name: green_tripdata
+        description: "Raw green taxi trip data for New York City"
+      - name: yellow_tripdata
+        description: "Raw yellow taxi trip data for New York City"
