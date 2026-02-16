@@ -12,16 +12,11 @@ payment_types as (
 
 cleaned_and_enriched as (
     select
-        -- Generate surrogate key for trip_id
-        md5(
-            concat(
-                u.vendor_id,
-                u.pickup_datetime,
-                u.pickup_location_id,
-                u.service_type
-            )
-        ) as trip_id,
-
+        -- Generate surrogate key for trip_id using dbt_utils.surrogate_key macro
+        {{ dbt_utils.generate_surrogate_key(
+            ['vendor_id', 'pickup_datetime', 'pickup_location_id', 'service_type']
+        ) }} as trip_id,
+        
         -- Identifiers
         u.vendor_id,
         u.service_type,
