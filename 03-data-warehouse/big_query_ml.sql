@@ -89,6 +89,6 @@ l2_reg=hparam_candidates([0, 0.1, 1, 10])) AS
 SELECT
 *
 FROM
-`taxi-rides-ny.nytaxi.yellow_tripdata_ml`
+`kestra-sandbox-486219.zoomcamp_kestra.yellow_tripdata_ml`
 WHERE
 tip_amount IS NOT NULL;
