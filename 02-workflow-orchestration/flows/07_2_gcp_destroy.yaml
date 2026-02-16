@@ -1,0 +1,19 @@
+id: 07_2_gcp_destroy
+namespace: zoomcamp
+
+tasks:
+  - id: delete_gcs_bucket
+    type: io.kestra.plugin.gcp.gcs.DeleteBucket
+    name: "{{kv('GCP_BUCKET_NAME')}}" # make sure it's globally unique!
+
+  - id: delete_bq_dataset
+    type: io.kestra.plugin.gcp.bigquery.DeleteDataset
+    name: "{{kv('GCP_DATASET')}}"
+
+pluginDefaults:
+  - type: io.kestra.plugin.gcp
+    values:
+      serviceAccount: "{{kv('GCP_CREDS')}}" 
+      projectId: "{{kv('GCP_PROJECT_ID')}}"
+      location: "{{kv('GCP_LOCATION')}}"
+      bucket: "{{kv('GCP_BUCKET_NAME')}}"
