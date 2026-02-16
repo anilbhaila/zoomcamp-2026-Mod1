@@ -113,8 +113,10 @@ docker run --rm -it -v $(pwd):/app my-ubuntu-duckdb
 
 dbt init
 dbt run
-dbt show --select stg_yellow_tripdata --limit 100
 
+dbt show --select stg_yellow_tripdata --limit 100
+dbt show --inline "select count(*) from {{ ref('your_model_name') }}"
+dbt show --inline "select count(*) from {{ref('fct_monthly_zone_revenue')}}"
 
 git reset  "will unset the staged changes"
 

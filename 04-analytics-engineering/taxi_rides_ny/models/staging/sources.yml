@@ -6,7 +6,7 @@ sources:
     #database: kestra-sandbox-486219
     #schema: zoomcamp_kestra
     database: "{{ 'taxi_rides_ny' if target.type == 'duckdb' else 'kestra-sandbox-486219' }}"
-    schema: "{{ 'prod' if target.type == 'duckdb' else 'zoomcamp_kestra' }}"
+    schema: "{{ 'prod' if target.type == 'duckdb' else 'zoomcamp_kestra' if target.name == 'dev' else 'zoomcamp_kestra' }}"
     freshness: #default freshness configuration for all tables in this source
       warn_after: {count: 24, period: hour}
       error_after: {count: 48, period: hour}
