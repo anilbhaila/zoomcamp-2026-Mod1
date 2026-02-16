@@ -5,8 +5,24 @@ sources:
     description: "Raw data sources for NYC taxi rides"
     database: kestra-sandbox-486219
     schema: zoomcamp_kestra
+    freshness: #default freshness configuration for all tables in this source
+      warn_after: {count: 12, period: hour}
+      error_after: {count: 24, period: hour}
     tables:
       - name: green_tripdata
         description: "Raw green taxi trip data for New York City"
+        columns:
+          - name: vendor_id
+            description: |
+              A code indicating the provider associated with the trip record.
+              1 = Creative Mobile Technologies, LLC
+              2 = VeriFone Inc.
+              4 = Expedia, Inc.
+            data_type: integer
+            meta:
+              pii: false
+              ownership: data_team
+              importance: high
+              formatting: none
       - name: yellow_tripdata
         description: "Raw yellow taxi trip data for New York City"

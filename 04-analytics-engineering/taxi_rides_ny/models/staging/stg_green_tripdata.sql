@@ -10,6 +10,7 @@ Select
     cast(lpep_dropoff_datetime as timestamp) as dropoff_datetime,
     
     --Trip info
+    cast(store_and_fwd_flag as string) as store_and_fwd_flag,
     cast(passenger_count as integer) as passenger_count,
     cast(trip_distance as numeric) as trip_distance,
     cast(trip_type as integer) as trip_type,

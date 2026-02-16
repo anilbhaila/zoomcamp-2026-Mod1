@@ -10,6 +10,7 @@ select
     cast(tpep_dropoff_datetime as timestamp) as dropoff_datetime,
     
     --Trip info
+    cast(store_and_fwd_flag as string) as store_and_fwd_flag,
     cast(passenger_count as integer) as passenger_count,
     cast(trip_distance as numeric) as trip_distance,
     01 as trip_type, -- yellow taxi can only be Street-hail, so we can hardcode this value

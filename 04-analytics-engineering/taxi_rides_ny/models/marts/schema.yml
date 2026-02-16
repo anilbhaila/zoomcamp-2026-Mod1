@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_vendors
+    description: "This table contains vendor information. It is derived from the raw vendorid column in the source data and provides a more user-friendly representation of the taxi vendors operating in New York City."
+    columns:
+      - name: vendor_id
+        description: "Unique identifier for the taxi vendor"
+        data_type: integer
+        tests:
+          - not_null
+          - unique
+        meta:
+          pii: false
+          ownership: data_team
+          importance: high
+          formatting: none
+      - name: vendor_name
+        description: "Name of the taxi vendor"
+        data_type: string
+        tests:
+          - not_null
+        meta:
+          pii: false
+          ownership: data_team
+          importance: high
+          formatting: none
