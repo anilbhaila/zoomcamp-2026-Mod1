@@ -1,3 +1,6 @@
+-- Union green and yellow taxi data into a single dataset
+-- Demonstrates how to combine data from multiple sources with slightly different schemas
+
 with green_tripdata as (
     select 
         vendor_id,

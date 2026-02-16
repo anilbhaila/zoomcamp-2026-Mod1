@@ -1,5 +1,5 @@
 with source as(
-    select * from {{ source('raw_data', 'yellow_tripdata') }}
+    select * from {{ source('raw', 'yellow_tripdata') }}
 ),
 
 renamed as (
@@ -31,7 +31,7 @@ renamed as (
         cast(total_amount as numeric) as total_amount,
         cast(payment_type as integer) as payment_type
 
-    from {{ source('raw_data', 'yellow_tripdata') }}
+    from source
     -- Filter out records with null vendor_id (data quality requirement)
     where vendorid is not null
 )

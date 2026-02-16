@@ -117,3 +117,36 @@ dbt show --select stg_yellow_tripdata --limit 100
 
 
 git reset  "will unset the staged changes"
+
+
+
+
+    database: |
+      {% if target.type == 'duckdb' %}
+        taxi_rides_ny
+      {% else %}
+        zoomcamp_kestra_dev
+        {{env_var('GCP_PROJECT_ID', 'kestra-sandbox-486219')}}
+      {% endif %}
+    schema: |
+      {% if target.type == 'duckdb' %}
+        prod  
+      {% else %}
+        zoomcamp_kestra
+      {% endif %}
+
+dbt run --target duckdb_target
+dbt run --target dev     
+
+
+
+# GitHub Code space is running out of space
+du -h -d 1 | sort -h  (To see which folder is consuming most space)
+
+du -h (Checks overal Disk Space)
+du -h -d 1 | sort -h (Finds large Folder & Files in depth 1)
+du -h -d 2 | sort -h (Finds large Folder & Files in depth 2)
+du -h -d 3 | sort -h (Finds large Folder & Files in depth 3)
+
+Found .venv in pipeline is consuming lots of size.
+You can clean according.

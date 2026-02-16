@@ -1,12 +1,12 @@
 with source as(
-    select * from {{ source('raw_data', 'green_tripdata') }}
+    select * from {{ source('raw', 'green_tripdata') }}
 ),
 
 renamed as (
     Select 
         --Identifiers
         cast(vendorid as integer) as vendor_id,
-        cast(ratecodeid as integer) as rate_code_id,
+        {{ safe_cast('ratecodeid', 'integer') }} as rate_code_id,
         cast(pulocationid as integer) as pickup_location_id,
         cast(dolocationid as integer) as dropoff_location_id,
         
@@ -29,9 +29,9 @@ renamed as (
         cast(improvement_surcharge as numeric) as improvement_surcharge,
         cast(ehail_fee as numeric) as ehail_fee,
         cast(total_amount as numeric) as total_amount,
-        cast(payment_type as integer) as payment_type
+        {{ safe_cast('payment_type', 'integer') }} as payment_type
 
-    from {{ source('raw_data', 'green_tripdata') }}
+    from source
     -- Filter out records with null vendor_id (data quality requirement)
     where vendorid is not null
 )

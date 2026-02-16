@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: raw_data
+  - name: raw
     description: "Raw data sources for NYC taxi rides"
     #database: kestra-sandbox-486219
     #schema: zoomcamp_kestra
