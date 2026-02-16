@@ -9,3 +9,4 @@ variables.*
 03-data-warehouse/serving_dir/
 03-data-warehouse/tmp/
 *.log
+*.duckdb
