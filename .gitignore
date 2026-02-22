@@ -9,4 +9,11 @@ variables.*
 03-data-warehouse/serving_dir/
 03-data-warehouse/tmp/
 *.log
-*.duckdb
+.bruin.yml
+logs/runs
+logs/*.log
+__pycache__/
+*.py[cod]
+logs/queries
+*.db
+*.DB
