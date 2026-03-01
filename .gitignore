@@ -17,3 +17,12 @@ __pycache__/
 logs/queries
 *.db
 *.DB
+**/.cursor/
+**/.dlt/
+**/.vscode/
+**/.env
+**/.venv
+**/__pycache__/
+**/venv/
+**/virtualenv/
+**/*.duckdb
